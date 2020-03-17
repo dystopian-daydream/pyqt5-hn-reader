@@ -64,12 +64,15 @@ class TabsWidget(QWidget):
 
     def initialize_tab_reader(self):
         self.tab_reader.layout = QHBoxLayout(self)
+        self.read_split = QSplitter(Qt.Horizontal)
 
         self.tab_reader.browser_article = QWebEngineView()
-        self.tab_reader.layout.addWidget(self.tab_reader.browser_article)
+        self.read_split.addWidget(self.tab_reader.browser_article)
 
         self.tab_reader.browser_comments = QWebEngineView()
-        self.tab_reader.layout.addWidget(self.tab_reader.browser_comments)
+        self.read_split.addWidget(self.tab_reader.browser_comments)
+
+        self.tab_reader.layout.addWidget(self.read_split)
 
         self.tab_reader.setLayout(self.tab_reader.layout)
 
